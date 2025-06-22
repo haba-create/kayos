@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Kayode Adebola - In Loving Memory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #3a3a3a;
+            background-color: #f9f7f4;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .header {
+            background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400"><defs><pattern id="flowers" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23e8ddd4" opacity="0.3"/><circle cx="80" cy="60" r="1" fill="%23e8ddd4" opacity="0.2"/><circle cx="50" cy="80" r="1" fill="%23e8ddd4" opacity="0.3"/></pattern></defs><rect width="1000" height="400" fill="url(%23flowers)"/></svg>');
+            padding: 80px 0 100px;
+            text-align: center;
+            color: #2c2c2c;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(240,235,228,0.3) 0%, transparent 70%);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .photo-frame {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 40px;
+            border-radius: 50%;
+            background: #e8ddd4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #8b7355;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 6px solid white;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: normal;
+            margin-bottom: 15px;
+            color: #2c2c2c;
+        }
+
+        .dates {
+            font-size: 1.2rem;
+            color: #6b6b6b;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .memorial-quote {
+            font-style: italic;
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 30px auto 0;
+            color: #5a5a5a;
+            line-height: 1.6;
+        }
+
+        .section {
+            background: white;
+            margin: 50px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .section-title {
+            background: #8b7355;
+            color: white;
+            padding: 25px 40px;
+            font-size: 1.8rem;
+            font-weight: normal;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .section-content {
+            padding: 50px 40px;
+        }
+
+        .life-story {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .life-story p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #4a4a4a;
+            line-height: 1.8;
+        }
+
+        .journey-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .highlight {
+            text-align: center;
+            padding: 30px 20px;
+            background: #faf8f5;
+            border-radius: 8px;
+            border-left: 4px solid #8b7355;
+        }
+
+        .highlight h3 {
+            color: #2c2c2c;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+
+        .highlight p {
+            color: #5a5a5a;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .family-tree {
+            text-align: center;
+        }
+
+        .family-member {
+            background: #faf8f5;
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #c4a17a;
+        }
+
+        .family-member h3 {
+            color: #2c2c2c;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            font-weight: normal;
+        }
+
+        .family-member p {
+            color: #6b6b6b;
+            font-size: 1rem;
+        }
+
+        .sisters, .nephews {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .photo-memories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .photo-placeholder {
+            aspect-ratio: 4/3;
+            background: #f5f2ee;
+            border: 2px dashed #c4a17a;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #8b7355;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .photo-placeholder:hover {
+            border-color: #8b7355;
+            background: #f0ebe3;
+        }
+
+        .memories {
+            margin-top: 30px;
+        }
+
+        .memory {
+            background: #faf8f5;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #8b7355;
+        }
+
+        .memory-author {
+            color: #8b7355;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .memory-text {
+            color: #4a4a4a;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .rest-in-peace {
+            background: linear-gradient(to bottom, #f5f2ee, #e8ddd4);
+            color: #2c2c2c;
+            text-align: center;
+            padding: 60px 40px;
+            margin-top: 50px;
+        }
+
+        .rest-in-peace h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .rest-in-peace p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #4a4a4a;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #8b7355;
+            font-style: italic;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-content {
+                padding: 30px 25px;
+            }
+            
+            .photo-frame {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+        }
+
+        .divider {
+            text-align: center;
+            margin: 40px 0;
+            color: #c4a17a;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="photo-frame">
+                    📷
+                </div>
+                <h1>John Kayode Adebola</h1>
+                <div class="dates">16 August 1972 - 2025</div>
+                <div class="memorial-quote">
+                    Beloved son, brother, uncle and friend<br>
+                    A gentle soul who touched many lives
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <div class="section-title">His Life Story</div>
+            <div class="section-content">
+                <div class="life-story">
+                    <p>John Kayode Adebola was born on 16 August 1972 in Nigeria, beginning a life journey that would span continents and touch countless hearts. Growing up in Kano, he attended St Louis Primary School and had just started at St Thomas Secondary School when his life took an exciting turn.</p>
+                    
+                    <p>His move to Hull, England - his mother Margaret's hometown - marked the beginning of a new chapter. There, John continued his education and embraced the opportunities that lay ahead while keeping his Nigerian heritage close to his heart.</p>
+                    
+                    <p>John's academic journey led him to Essex University, where he pursued Computer Science with dedication and passion. After completing his degree, he settled in Hampstead, London, where he would build not just a home, but a legacy.</p>
+                    
+                    <p>As an entrepreneur, John established successful mobile phone businesses in Streatham and Camden Town. His shops became more than places of business - they were community hubs where his warmth, expertise, and genuine care for others shone through every interaction.</p>
+                </div>
+                
+                <div class="divider">❋ ❋ ❋</div>
+                
+                <div class="journey-highlights">
+                    <div class="highlight">
+                        <h3>Early Years in Kano</h3>
+                        <p>Born and raised in Nigeria, attending St Louis Primary School with dreams of a bright future.</p>
+                    </div>
+                    <div class="highlight">
+                        <h3>New Beginnings in Hull</h3>
+                        <p>Continuing his education in England, adapting to a new culture while honoring his roots.</p>
+                    </div>
+                    <div class="highlight">
+                        <h3>University Success</h3>
+                        <p>Studying Computer Science at Essex University, laying the foundation for his future achievements.</p>
+                    </div>
+                    <div class="highlight">
+                        <h3>London Entrepreneur</h3>
+                        <p>Building a thriving business in Hampstead, Streatham, and Camden Town, serving his community with dedication.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">His Loving Family</div>
+            <div class="section-content">
+                <div class="family-tree">
+                    <div class="family-member">
+                        <h3>Mother</h3>
+                        <p>Margaret Wilks</p>
+                    </div>
+                    
+                    <div class="family-member">
+                        <h3>Brother</h3>
+                        <p>Stephen Adebola</p>
+                    </div>
+                    
+                    <div class="sisters">
+                        <div class="family-member">
+                            <h3>Sister</h3>
+                            <p>Rosemary Adebola</p>
+                        </div>
+                        <div class="family-member">
+                            <h3>Sister</h3>
+                            <p>Caroline Adei</p>
+                        </div>
+                        <div class="family-member">
+                            <h3>Sister</h3>
+                            <p>Betty Adebola</p>
+                        </div>
+                    </div>
+                    
+                    <div class="nephews">
+                        <div class="family-member">
+                            <h3>Nephew</h3>
+                            <p>Sultan Adebola</p>
+                        </div>
+                        <div class="family-member">
+                            <h3>Nephew</h3>
+                            <p>Zeth Adebola</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding: 25px; background: #f5f2ee; border-radius: 8px; font-style: italic; color: #5a5a5a;">
+                        "Family was everything to John. His love, guidance, and gentle spirit bound us all together, 
+                        and his memory continues to be the thread that keeps our family strong."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">Cherished Memories</div>
+            <div class="section-content">
+                <div class="photo-memories">
+                    <div class="photo-placeholder">
+                        <span style="font-size: 2rem;">📸</span>
+                        <span>Childhood in Kano</span>
+                    </div>
+                    <div class="photo-placeholder">
+                        <span style="font-size: 2rem;">📸</span>
+                        <span>School Days</span>
+                    </div>
+                    <div class="photo-placeholder">
+                        <span style="font-size: 2rem;">📸</span>
+                        <span>University Years</span>
+                    </div>
+                    <div class="photo-placeholder">
+                        <span style="font-size: 2rem;">📸</span>
+                        <span>Family Gatherings</span>
+                    </div>
+                    <div class="photo-placeholder">
+                        <span style="font-size: 2rem;">📸</span>
+                        <span>Business Success</span>
+                    </div>
+                    <div class="photo-placeholder">
+                        <span style="font-size: 2rem;">📸</span>
+                        <span>Happy Moments</span>
+                    </div>
+                </div>
+                
+                <div class="memories">
+                    <div class="memory">
+                        <div class="memory-author">From the Family</div>
+                        <div class="memory-text">
+                            "John was the heart of our family. His journey from Kano to Hull to London showed us all what determination and love could achieve. His gentle wisdom, infectious laughter, and unwavering support will be forever missed and cherished."
+                        </div>
+                    </div>
+
+                    <div class="memory">
+                        <div class="memory-author">From His Customers</div>
+                        <div class="memory-text">
+                            "John's shop wasn't just a place to fix phones - it was where you'd go for honest advice, fair prices, and a friendly chat. He treated everyone like family and always had time to help. The community has lost a truly special person."
+                        </div>
+                    </div>
+
+                    <div class="memory">
+                        <div class="memory-author">From University Friends</div>
+                        <div class="memory-text">
+                            "Even at Essex University, John's entrepreneurial spirit and kind heart were evident. He was always willing to help with coding problems and brought such positive energy to everything he did. We knew he was destined for great things."
+                        </div>
+                    </div>
+
+                    <div class="memory">
+                        <div class="memory-author">From the Hull Community</div>
+                        <div class="memory-text">
+                            "When John first arrived in Hull from Nigeria, he brought such warmth and determination. Watching him grow and succeed in London made us all proud. Hull welcomed him, and now we welcome him home for his final rest."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="rest-in-peace">
+            <h2>Final Rest</h2>
+            <p>
+                John will be laid to rest in Hull, returning to the place where his English journey began, 
+                surrounded by the love of his family and the memories of a life beautifully lived. 
+                Though he has left us, his spirit lives on in every life he touched, 
+                every smile he shared, and every act of kindness he showed.
+            </p>
+            <div style="margin-top: 30px; font-style: italic; color: #6b6b6b;">
+                "Until we meet again, dear John. Your love and light will guide us always."
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>In loving memory of John Kayode Adebola<br>
+            16 August 1972 - 2025 • Forever in our hearts</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple photo placeholder interaction
+        document.querySelectorAll('.photo-placeholder').forEach(placeholder => {
+            placeholder.addEventListener('click', function() {
+                const message = 'This space is reserved for a cherished photograph of John. ' +
+                              'Family members can contact the website administrator to add photos and memories.';
+                alert(message);
+            });
+        });
+
+        // Gentle scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
